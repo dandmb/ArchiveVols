@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mesvols.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_flightListFragment"
+            app:destination="@id/flightListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flightListFragment"
+        android:name="com.example.mesvols.ui.FlightListFragment"
+        android:label="fragment_flight_list"
+        tools:layout="@layout/fragment_flight_list" >
+        <action
+            android:id="@+id/action_flightListFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <argument
+            android:name="airportName"
+            app:argType="string" />
+        <argument
+            android:name="radioSelection"
+            app:argType="string" />
+        <argument
+            android:name="startDate"
+            app:argType="long" />
+        <argument
+            android:name="endDate"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.mesvols.ui.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <argument
+            android:name="icao"
+            app:argType="string" />
+    </fragment>
+</navigation>
